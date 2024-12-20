@@ -1,0 +1,143 @@
+@use 'config/variaveis.scss';
+@use 'config/reset.scss';
+
+// Definindo o body como um container flexível para garantir que o footer fique no final da página
+body {
+    display: flex;
+    flex-direction: column;  // Alinha os itens (header, main, footer) em uma coluna
+    min-height: 100vh;  // Garante que a altura mínima do body seja 100% da altura da tela
+}
+
+.container {
+    max-width: variaveis.$max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 variaveis.$padding;
+}
+
+header {
+    background-color: variaveis.$primary-color;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 variaveis.$padding;
+    }
+
+    .branding img {
+        width: 80px;         // Ajuste o tamanho conforme necessário
+        height: 80px;        // Deve ser igual à largura para criar um círculo
+        border-radius: 50%;  // Torna a logo redonda
+        object-fit: cover;   // Garante que a imagem cubra a área sem distorção
+    }
+}
+
+.menu {
+    display: flex;
+    gap: 1rem;
+
+    a {
+        color: white;
+        text-decoration: none;
+        padding: 0;
+        transition: color variaveis.$transition-speed ease, transform variaveis.$transition-speed ease;
+
+        &:hover {
+            color: variaveis.$cor-hover;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    h4 {
+        margin: 15px 0 10px;
+        font-size: variaveis.$font-size-titulo;
+    }
+
+    p {
+        font-size: variaveis.$font-size-base;
+        color: #666;
+    }
+
+    .product-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: variaveis.$primary-color;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: darken(variaveis.$primary-color, 10%);
+        }
+    }
+}
+
+footer {
+    background-color: variaveis.$background-color;
+    color: variaveis.$primary-color;
+    padding: 20px 0;
+    margin-top: auto;  // Isso empurra o footer para baixo
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        p {
+            margin: 0;
+            font-size: variaveis.$font-size-base;
+        }
+
+        .footer-menu {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+
+            a {
+                color: variaveis.$primary-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// Garantir que os pontos sejam removidos de todas as listas
+ul, ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+@media (max-width: 768px) { 
+    .container {
+        padding: 0 10px
+    }
+}

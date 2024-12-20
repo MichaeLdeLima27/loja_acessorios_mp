@@ -1,0 +1,13 @@
+@use 'sass:color';
+
+
+$primary-color: #182C61;      // Cor principal do site
+$background-color: #f5f6fa;   // Cor de fundo para a maioria das seções
+$fontPrincipal: 'Roboto', sans-serif;  // Família de fontes correta
+$max-width: 1024px;           // Largura máxima para o layout
+$padding: 16px;               // Espaçamento padrão
+$cor-hover: color.scale($primary-color, $lightness: 10%);  // Usando color.scale para ajustar a luminosidade
+$transition-speed: 0.3s;       // Velocidade de transição para efeitos suaves
+$font-size-base: 14px;         // Tamanho de fonte base
+$font-size-titulo: 18px;       // Tamanho de fonte para títulos
+$font-size-produto: 16px;
